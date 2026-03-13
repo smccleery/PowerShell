@@ -79,7 +79,7 @@ if ($PSBoundParameters["IncludeDeviceInfo"]) {
         $Devices | Add-Member -MemberType NoteProperty -Name "BitLockerDriveType" -Value $null
         $Devices | Add-Member -MemberType NoteProperty -Name "BitLockerBackedUp" -Value $null
     }
-    $Devices | % { Add-Member -InputObject $_ -MemberType NoteProperty -Name "DeviceOwner" -Value (&{if ($_.registeredOwners) { $_.registeredOwners[0].AdditionalProperties.userPrincipalName } else { "N/A" }}) }    
+    $Devices | % { Add-Member -InputObject $_ -MemberType NoteProperty -Name "DeviceOwner" -Value (&{if ($_.registeredOwners) { $_.registeredOwners[0].AdditionalProperties.userPrincipalName } else { "N/A" }}) }
 }
 
 #Get the list of application objects within the tenant.
